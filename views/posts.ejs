@@ -1,49 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
-    <script src="https://cdn.bootcss.com/axios/0.16.2/axios.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div id = app class = "container">
-        <!-- 添加新建文章按钮 -->
-        <div class="btn-group pull-right">
-            <button type="button" class="btn btn-default" name="button">操作</button>
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="/posts/create/">新建</a></li>
-            </ul>
-        </div>
-
-
-        <div class="col-md-8 col-md-offset-2">
-            <h1><%= title %></h1>
-            <p>Welcome to <%= title %></p>
-            <!-- <p v-for="item in postsList">{{ item.title }}</p> -->
-            <!-- <div v-for="item in postsList">
-                <a v-bind:href="item.url">{{ item.title }}</a>
-            </div> -->
-            <!-- 使用list-group展示文章列表，会在文章前面加点，然后之间的行距变大 -->
-            <ul class="list-group" v-for="item in postsList">
-                <li class="list-group-item">
-                    <a v-bind:href="item.url">{{ item.title }}</a>
-                </li>
-            </ul>
-        </div>
-
-
+<div class="btn-group pull-right">
+    <button type="button" class="btn btn-default" name="button">操作</button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a href="/posts/create/">新建</a></li>
+    </ul>
 </div>
 
-  </body>
-</html>
+
+<div class="col-md-8 col-md-offset-2">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <!-- <p v-for="item in postsList">{{ item.title }}</p> -->
+    <!-- <div v-for="item in postsList">
+        <a v-bind:href="item.url">{{ item.title }}</a>
+    </div> -->
+    <!-- 使用list-group展示文章列表，会在文章前面加点，然后之间的行距变大 -->
+    <ul class="list-group" v-for="item in postsList">
+        <li class="list-group-item">
+            <a v-bind:href="item.url">{{ item.title }}</a>
+        </li>
+    </ul>
+</div>
+
 <script type="text/javascript">
 var vm = new Vue({
     el: '#app',
