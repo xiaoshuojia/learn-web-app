@@ -79,21 +79,23 @@ router.post('/posts/create', function (req, res, next) {
 // get the special article
 router.get('/posts/one', function(req, res, next){
     var id = req.query.id;
-
-    postModel.findeOne({_id: id}, function(err, post){
+    PostModel.findOne({_id: id}, function(err, post){
         if (err){
             res.json({success: false});
-            return ;
+            return;
         }
-        res.json({success: true});
+        res.json({success: true, post});
     });
 });
+
 
 // update the special article to the DB
 router.post('/posts/edit', function(req, res, next){
     var id = req.body.id;
     var content = req.body.content;
     var title = req.body.title;
+    console.log('id:'+ id );
+    console.log('title: ' + title);
 
     postModel.findOneAndUpdate({_id: id}, {title, content}, function(err){
         if(err){
@@ -105,6 +107,16 @@ router.post('/posts/edit', function(req, res, next){
     });
 });
 
+// router.get('/posts/one/', funciotn(req, res, next){
+//   var id = req.query.id;
+//   postModel.findOne({_id: id}, function(err, post){
+//     if (err){
+//       res.json({success: false});
+//       return;
+//     }
+//     res.json({success: true, post});
+//   });
+// });
 
 
 module.exports = router;

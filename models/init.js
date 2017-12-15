@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 
-mongoose.connect('mongodb://192.168.1.2:32772/first-web-app', {
+mongoose.connect('mongodb://192.168.1.3:32772/first-web-app', {
     useMongoClient: true
 });
 

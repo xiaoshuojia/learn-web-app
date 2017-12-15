@@ -19,8 +19,8 @@
             title: '',
             content: ''
         },
-        // 为何要在这里用create函数
-        create(){
+        // 为何要在这里用created函数，我分析是创建页面
+        created(){
             axios.get('/api/posts/one?id=' + postId).then(function(response){
                 vm.title = response.data.post.title;
                 vm.content = response.data.post.content;
